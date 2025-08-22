@@ -1,47 +1,47 @@
-# dotfiles / bootstrap (by Matías Lagos)
+# ⚡ Dotfiles / Bootstrap (by Matías Lagos)
 
-Script para dejar una máquina **nueva** lista y clonar **todos** mis repos de GitHub en minutos.
+Script to set up a fresh machine and clone all my GitHub repositories in minutes.  
 
-## 🚀 ¿Qué hace?
-- Instala paquetes base: `git`, `jq`, `curl`, `openssh-client`.
-- Configura Git (nombre/correo).
-- Genera y carga **clave SSH**.
-- Clona **todos** los repos (públicos; opcional privados con token).
-- Cambia remotos a **SSH** para `push` sin token.
-- Utilidades para `status` y `pull` en todos los repos.
+## 🚀 Features
+- Installs base packages: `git`, `jq`, `curl`, `openssh-client`  
+- Configures Git (name/email)  
+- Generates and uploads SSH key  
+- Clones all repositories (public; private optional with token)  
+- Switches remotes to SSH for push without token  
+- Utilities for checking repo status and pulling all at once  
 
-## ⚙️ Requisitos
-- Debian/Ubuntu/Kali con `apt`.
-- Cuenta GitHub.
-- Internet.
+## ⚙️ Requirements
+- Debian/Ubuntu/Kali with `apt`  
+- GitHub account  
+- Internet connection  
 
-## 🧪 Uso rápido (one-liner)
-> Para máquinas nuevas (descarga y ejecuta el script directamente):
+## 🧪 Quick Start (one-liner)
+
+For fresh machines (download and execute the script directly):  
+
 ```bash
 bash -c 'sudo apt update && sudo apt install -y curl && \
 curl -fsSL https://raw.githubusercontent.com/Matiaslb14/dotfiles/main/bootstrap_github.sh | bash -s -- --all'
 
-Durante la ejecución verás tu clave pública SSH. Cópiala y pégala en:
-GitHub → Settings → SSH and GPG keys → New SSH key.
-Prueba luego:
+During execution, you’ll see your SSH public key. Copy and paste it into:
+GitHub → Settings → SSH and GPG keys → New SSH key
 
+Then test your connection:
 ssh -T git@github.com
 
-🛠️ Uso local
+🛠️ Local Usage
 
 chmod +x bootstrap_github.sh
 ./bootstrap_github.sh --all
 
-Opciones disponibles:
+Options available:
 
---all → instala + configura + SSH + clona + cambia a SSH
+--all → install + configure + SSH + clone + switch to SSH
 
---clone → solo clona (HTTPS)
+--clone → only clone (HTTPS)
 
---switch-ssh → convierte remotos a SSH
+--switch-ssh → convert remotes to SSH
 
---pull-all → git pull --ff-only en todos
+--pull-all → run git pull --ff-only on all repos
 
---status-all → git status -s en todos
-
-
+--status-all → show git status -s for all repos
